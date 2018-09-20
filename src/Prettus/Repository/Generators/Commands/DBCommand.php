@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * Class DBCommand
+ * @package Prettus\Repository\Generators\Commands
+ */
 class DBCommand extends Command
 {
 
