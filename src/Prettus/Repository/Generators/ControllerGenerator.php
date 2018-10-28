@@ -79,17 +79,38 @@ class ControllerGenerator extends Generator
     }
 
     /**
+     * Gets normal name based on model
+     *
+     * @return string
+     */
+    public function getNormalName()
+    {
+
+        return lcfirst(ucwords($this->getClass()));
+    }
+
+    /**
      * Get array replacements.
      *
      * @return array
      */
     public function getReplacements()
     {
+    	$pluralName = $this->getNormalName();
+    	$singularName = $this->getNormalName();
+
+	    if(config('repository.generator.plural', true)){
+		    $pluralName = $this->getPluralName();
+	    }
+
+	    if(config('repository.generator.singular', true)){
+		    $singularName = $this->getSingularName();
+	    }
 
         return array_merge(parent::getReplacements(), [
             'controller' => $this->getControllerName(),
-            'plural'     => $this->getPluralName(),
-            'singular'   => $this->getSingularName(),
+            'plural'     => $pluralName,
+            'singular'   => $singularName,
             'validator'  => $this->getValidator(),
             'repository' => $this->getRepository(),
             'appname'    => $this->getAppNamespace(),

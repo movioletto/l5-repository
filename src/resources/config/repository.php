@@ -229,6 +229,8 @@ return [
         'basePath'      => app()->path(),
         'rootNamespace' => 'App\\',
         'stubsOverridePath' => app()->path(),
+	    'singular' => true,
+	    'plural' => true,
         'paths'         => [
             'models'       => 'Entities',
             'repositories' => 'Repositories',
