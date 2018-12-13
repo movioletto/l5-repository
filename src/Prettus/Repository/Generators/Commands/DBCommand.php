@@ -142,7 +142,7 @@ class DBCommand extends Command
 
 
 			$this->call('make:repository', [
-				'name' => $tabella['name'],
+				'name' => ucfirst($tabella['name']),
 				'--fillable' => $tabella['fields'],
 				'--rules' => $this->option('rules'),
 				'--validator' => $validator,
